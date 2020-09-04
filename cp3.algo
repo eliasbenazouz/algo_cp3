@@ -1,0 +1,35 @@
+
+ALGORITHM orthogonalChecker
+VAR
+    vector_a : ARRAY_OF INTEGER[n];
+    vector_b : ARRAY_OF INTEGER[n];
+
+BEGIN
+    vector_a := {a1,a2,a3...n};
+    vector_b := {b1,b2,b3...n};
+    FUNCTION scalarDot_Calculator(v1 : ARRAY_OF INTEGER[n], v2 : ARRAY_OF INTEGER[n]) : INTEGER
+    VAR
+    total : INTEGER := 0;
+    i : INTEGER := 0;
+    BEGIN
+        total := 0;
+        FOR i FROM 0 TO v1.length STEP 1  DO
+            total := total + (v1[i] * v2[i])
+        END_FOR
+        RETURN total;
+    END
+
+    VAR scalarDotResult := scalarDot_Calculator(vector_a,vector_b)
+
+    PROCEDURE checker(result : INTEGER)
+    BEGIN
+        IF (result == 0) THEN
+            Write("Are orthogonal")
+        ELSE
+            Write("Are not orthogonal")
+        END_IF
+    END
+
+    checker(scalarDotResult)
+
+END
